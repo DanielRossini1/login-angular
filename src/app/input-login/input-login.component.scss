@@ -1,0 +1,20 @@
+.input-form-login{
+    background-color: #353a40;
+    display: flex;
+    margin-bottom: 13px;
+
+    .icon-input {
+        font-size: 23px;
+        padding: 8px;
+        color: #b1b1af;
+    }
+
+    input {
+        background-color: #3a4149;
+        border: 0;
+        padding: 10px;
+        outline: none;
+        color: #b1b1af;
+        width: 235px;
+    }
+}

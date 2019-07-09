@@ -1,0 +1,15 @@
+.div-cadastrar{
+    color: #75757d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a{
+        color: white;
+        text-decoration: none;
+
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

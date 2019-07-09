@@ -1,0 +1,17 @@
+.button-login{
+    width: 100%;
+    background-color: #ea4c87;
+    border: 0;
+    outline: 0;
+    color: white;
+    height: 45px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+
+    &:hover{
+
+        background-color: #e66d9a;
+    }
+}
