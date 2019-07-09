@@ -11,6 +11,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { InputLoginComponent } from './input-login/input-login.component';
 import { ButtonLoginComponent } from './button-login/button-login.component';
+import { FormRegisterComponent } from './form-register/form-register.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ButtonLoginComponent } from './button-login/button-login.component';
     NavbarComponent,
     FormLoginComponent,
     InputLoginComponent,
-    ButtonLoginComponent
+    ButtonLoginComponent,
+    FormRegisterComponent
   ],
   imports: [
     BrowserModule,
