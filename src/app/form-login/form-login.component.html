@@ -1,8 +1,15 @@
+<ngx-spinner bdColor="rgba(58,58,60,0.5)" size="medium" color="#fff" type="ball-clip-rotate"></ngx-spinner>
 <div class="card-form-login">
-    <form>
-        <app-input-login placeholderName="Usuário" iconInput="person"></app-input-login>
-        <app-input-login placeholderName="Senha" iconInput="lock"></app-input-login>
-        <app-button-login></app-button-login>
+    <form [formGroup]="formLogin" (ngSubmit)="onSubmit()">
+        <div class="input-form-login">
+            <i class="material-icons icon-input">person</i>
+            <input type="text" placeholder="Usuário" formControlName="usuario">
+        </div>
+        <div class="input-form-login">
+            <i class="material-icons icon-input">lock</i>
+            <input type="text" placeholder="Senha" formControlName="senha">
+        </div>
+        <button class="button-login" [disabled]="!formLogin.valid">ENVIAR</button>
         <div class="div-cadastrar">
             <p>Não tem conta? <a routerLink="/register">Cadastre-se</a> </p>
             <i class="material-icons">arrow_right_alt</i>

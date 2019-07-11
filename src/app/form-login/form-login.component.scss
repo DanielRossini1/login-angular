@@ -13,3 +13,42 @@
         }
     }
 }
+
+.input-form-login{
+    background-color: #353a40;
+    display: flex;
+    margin-bottom: 13px;
+
+    .icon-input {
+        font-size: 23px;
+        padding: 8px;
+        color: #b1b1af;
+    }
+
+    input {
+        background-color: #3a4149;
+        border: 0;
+        padding: 10px;
+        outline: none;
+        color: #b1b1af;
+        width: 235px;
+    }
+}
+
+.button-login{
+    width: 100%;
+    background-color: #ea4c87;
+    border: 0;
+    outline: 0;
+    color: white;
+    height: 45px;
+    margin-top: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+
+    &:hover{
+
+        background-color: #e66d9a;
+    }
+}

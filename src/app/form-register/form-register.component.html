@@ -1,12 +1,22 @@
 <div class="card-form-login">
-        <form>
-            <app-input-login placeholderName="Usuário" iconInput="person"></app-input-login>
-            <app-input-login placeholderName="Senha" iconInput="lock"></app-input-login>
-            <app-input-login placeholderName="Confirmar Senha" iconInput="lock"></app-input-login>
-            <app-button-login></app-button-login>
-            <div class="div-cadastrar">
-                <p>Já possui conta? <a routerLink="/login">Entrar</a> </p>
-                <i class="material-icons">arrow_right_alt</i>
-            </div>
-        </form>
-    </div>
+    <form [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+        <div class="input-form-login">
+            <i class="material-icons icon-input">person</i>
+            <input type="text" placeholder="Usuário" formControlName="usuario">
+        </div>
+        <div class="input-form-login">
+            <i class="material-icons icon-input">lock</i>
+            <input type="text" placeholder="Senha" formControlName="senha">
+        </div>
+        <div class="input-form-login">
+            <i class="material-icons icon-input">lock</i>
+            <input type="text" placeholder="Confirmar Senha" formControlName="confirmSenha">
+        </div>
+        <button class="button-login">ENVIAR</button>
+        <div class="div-cadastrar">
+            <p>Já possui conta? <a routerLink="/login">Entrar</a> </p>
+            <i class="material-icons">arrow_right_alt</i>
+        </div>
+    </form>
+</div>
+<ngx-spinner bdColor="rgba(58,58,60,0.5)" size="medium" color="#fff" type="ball-clip-rotate"></ngx-spinner>
