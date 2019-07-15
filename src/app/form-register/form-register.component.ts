@@ -50,10 +50,11 @@ export class FormRegisterComponent implements OnInit {
   }
   
   validaConfirmSenha(form: FormGroup){
+    console.log(form);
     if(form.controls.senha.value != form.controls.confirmSenha.value){
       return { "confirmarSenha": true };
     }
-    return { "confirmarSenha": false };
+    return null;
   }
   
 }

@@ -22,7 +22,7 @@
                 Campo Obrigatório.
             </div>
         </div>
-        <button class="button-login">ENVIAR</button>
+        <button [ngClass]="{'button-login': formLogin.status === 'VALID', 'button-login-disabled': formLogin.status === 'INVALID'}" [disabled]="!formLogin.valid">ENVIAR</button>
         <div class="div-cadastrar">
             <p>Não tem conta? <a routerLink="/register">Cadastre-se</a> </p>
             <i class="material-icons">arrow_right_alt</i>

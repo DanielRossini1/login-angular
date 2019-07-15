@@ -25,12 +25,12 @@
             <i class="material-icons icon-input">lock</i>
             <input type="password" placeholder="Confirmar Senha" formControlName="confirmSenha">
         </div>
-        <div *ngIf="(formRegister.controls.senha.dirty || formRegister.controls.senha.touched) && (formRegister.controls.confirmSenha.dirty || formRegister.controls.confirmSenha.touched)" class="div-validation">
+        <div *ngIf="(formRegister.controls.senha.dirty || formRegister.controls.senha.touched) && (formRegister.controls.confirmSenha.dirty || formRegister.controls.confirmSenha.touched) && formRegister.errors != null" class="div-validation">
             <div *ngIf="formRegister.errors.confirmarSenha">
                 Senha precisa ser igual.
             </div>
         </div>
-        <button class="button-login">ENVIAR</button>
+        <button [ngClass]="{'button-login': formRegister.status === 'VALID', 'button-login-disabled': formRegister.status === 'INVALID'}" [disabled]="!formRegister.valid">ENVIAR</button>
         <div class="div-cadastrar">
             <p>Já possui conta? <a routerLink="/login">Entrar</a> </p>
             <i class="material-icons">arrow_right_alt</i>

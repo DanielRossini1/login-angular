@@ -54,6 +54,19 @@
     }
 }
 
+.button-login-disabled{
+    width: 100%;
+    background-color: #bb7791;
+    border: 0;
+    outline: 0;
+    color: white;
+    height: 45px;
+    margin-top: 12px;
+    cursor: not-allowed;
+    font-size: 15px;
+    font-weight: bold;
+}
+
 .div-validation{
     div{
         color: #b1b1af;
