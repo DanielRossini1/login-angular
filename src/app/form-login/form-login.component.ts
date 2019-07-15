@@ -32,7 +32,7 @@ export class FormLoginComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.formLogin);
+    console.log(this.formLogin.controls.usuario);
   }
 
 }

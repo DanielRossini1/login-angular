@@ -4,13 +4,31 @@
             <i class="material-icons icon-input">person</i>
             <input type="text" placeholder="Usuário" formControlName="usuario">
         </div>
-        <div class="input-form-login">
-            <i class="material-icons icon-input">lock</i>
-            <input type="text" placeholder="Senha" formControlName="senha">
+        <div *ngIf="formRegister.controls.usuario.invalid && (formRegister.controls.usuario.dirty || formRegister.controls.usuario.touched)" class="div-validation">
+            <div *ngIf="formRegister.controls.usuario.errors.required">
+                Campo Obrigatório.
+            </div>
+            <div *ngIf="formRegister.controls.usuario.errors.minlength">
+                Precisa ter no mínimo 4 caracteres.
+            </div>
         </div>
         <div class="input-form-login">
             <i class="material-icons icon-input">lock</i>
-            <input type="text" placeholder="Confirmar Senha" formControlName="confirmSenha">
+            <input type="password" placeholder="Senha" formControlName="senha">
+        </div>
+        <div *ngIf="formRegister.controls.senha.invalid && (formRegister.controls.senha.dirty || formRegister.controls.senha.touched)" class="div-validation">
+            <div *ngIf="formRegister.controls.senha.errors.required">
+                Campo Obrigatório.
+            </div>
+        </div>
+        <div class="input-form-login">
+            <i class="material-icons icon-input">lock</i>
+            <input type="password" placeholder="Confirmar Senha" formControlName="confirmSenha">
+        </div>
+        <div *ngIf="(formRegister.controls.senha.dirty || formRegister.controls.senha.touched) && (formRegister.controls.confirmSenha.dirty || formRegister.controls.confirmSenha.touched)" class="div-validation">
+            <div *ngIf="formRegister.errors.confirmarSenha">
+                Senha precisa ser igual.
+            </div>
         </div>
         <button class="button-login">ENVIAR</button>
         <div class="div-cadastrar">

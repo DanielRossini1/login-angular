@@ -17,7 +17,8 @@
 .input-form-login{
     background-color: #353a40;
     display: flex;
-    margin-bottom: 13px;
+    margin-top: 13px;
+    margin-bottom: 3px;
 
     .icon-input {
         font-size: 23px;
@@ -50,5 +51,11 @@
     &:hover{
 
         background-color: #e66d9a;
+    }
+}
+
+.div-validation{
+    div{
+        color: #b1b1af;
     }
 }

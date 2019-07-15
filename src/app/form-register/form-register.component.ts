@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -12,23 +12,48 @@ export class FormRegisterComponent implements OnInit {
 
   constructor(private spinner: NgxSpinnerService) { }
 
+  stringSenha: String;
+  stringConfirmSenha: String;
+
   formRegister = new FormGroup({
-    usuario: new FormControl(''),
-    senha: new FormControl(''),
-    confirmSenha: new FormControl(''),
-  });
-
+    usuario: new FormControl('',[
+      Validators.required,
+      Validators.minLength(4)
+    ]),
+    senha: new FormControl('',
+    Validators.required
+    ),
+    confirmSenha: new FormControl('',
+      Validators.required
+    ),
+  }, { validators: this.validaConfirmSenha });
+  
   ngOnInit() {
+    this.stringSenha = '';
+    this.stringConfirmSenha = '';
     this.spinner.show();
-
+    
     setTimeout(() => {
-      /** spinner ends after 5 seconds */
       this.spinner.hide();
     }, 300);
-  }
 
+    this.formRegister.controls.senha.valueChanges.subscribe(val => {
+      this.stringSenha = val;
+    });
+    this.formRegister.controls.confirmSenha.valueChanges.subscribe(val => {
+      this.stringConfirmSenha = val;
+    });
+  }
+  
   onSubmit(){
-    console.error(this.formRegister);
+    console.log(this.formRegister);
   }
-
+  
+  validaConfirmSenha(form: FormGroup){
+    if(form.controls.senha.value != form.controls.confirmSenha.value){
+      return { "confirmarSenha": true };
+    }
+    return { "confirmarSenha": false };
+  }
+  
 }

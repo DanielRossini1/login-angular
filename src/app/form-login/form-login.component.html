@@ -5,11 +5,24 @@
             <i class="material-icons icon-input">person</i>
             <input type="text" placeholder="Usuário" formControlName="usuario">
         </div>
+        <div *ngIf="formLogin.controls.usuario.invalid && (formLogin.controls.usuario.dirty || formLogin.controls.usuario.touched)" class="div-validation">
+            <div *ngIf="formLogin.controls.usuario.errors.required">
+                Campo Obrigatório.
+            </div>
+            <div *ngIf="formLogin.controls.usuario.errors.minlength">
+                Precisa ter no mínimo 4 caracteres.
+            </div>
+        </div>
         <div class="input-form-login">
             <i class="material-icons icon-input">lock</i>
-            <input type="text" placeholder="Senha" formControlName="senha">
+            <input type="password" placeholder="Senha" formControlName="senha">
         </div>
-        <button class="button-login" [disabled]="!formLogin.valid">ENVIAR</button>
+        <div *ngIf="formLogin.controls.senha.invalid && (formLogin.controls.senha.dirty || formLogin.controls.senha.touched)" class="div-validation">
+            <div *ngIf="formLogin.controls.senha.errors.required">
+                Campo Obrigatório.
+            </div>
+        </div>
+        <button class="button-login">ENVIAR</button>
         <div class="div-cadastrar">
             <p>Não tem conta? <a routerLink="/register">Cadastre-se</a> </p>
             <i class="material-icons">arrow_right_alt</i>
