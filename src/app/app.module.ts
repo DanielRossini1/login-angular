@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FormLoginComponent } from './form-login/form-login.component';
@@ -24,6 +25,7 @@ import { FormRegisterComponent } from './form-register/form-register.component';
     BrowserAnimationsModule,
     MatCardModule,
     MatFormFieldModule,
+    HttpClientModule,
     MatIconModule,
     NgxSpinnerModule,
     ReactiveFormsModule

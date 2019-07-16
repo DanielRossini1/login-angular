@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { NgxSpinnerService } from "ngx-spinner";
 
@@ -10,10 +11,14 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class FormRegisterComponent implements OnInit {
 
-  constructor(private spinner: NgxSpinnerService) { }
+  constructor(private spinner: NgxSpinnerService, private http: HttpClient,) { }
 
   stringSenha: String;
   stringConfirmSenha: String;
+
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
 
   formRegister = new FormGroup({
     usuario: new FormControl('',[
@@ -46,11 +51,25 @@ export class FormRegisterComponent implements OnInit {
   }
   
   onSubmit(){
-    console.log(this.formRegister);
+    var bool = false;
+    this.http.get('http://localhost:3000/users').subscribe(val => {
+      val.forEach(element => {
+        if(element.usuario == this.formRegister.controls.usuario.value){
+          console.log("tem igual!");
+          bool = true;
+          return;
+        }
+      });
+      if(!bool){
+        console.log("nao tem igual");
+        this.http.post('http://localhost:3000/users',{ usuario: this.formRegister.controls.usuario.value, senha: this.formRegister.controls.senha.value},this.httpOptions).subscribe(function (doido){
+          console.log(doido);
+        });
+      }
+    });
   }
   
   validaConfirmSenha(form: FormGroup){
-    console.log(form);
     if(form.controls.senha.value != form.controls.confirmSenha.value){
       return { "confirmarSenha": true };
     }
